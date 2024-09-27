@@ -14,5 +14,19 @@ ConsultaCEP foi criado com o objetivo de poupar tempo e esforço, permitindo que
 
 Sinta-se à vontade para explorar, contribuir e sugerir melhorias! Este é um projeto em constante evolução, e a participação da comunidade é muito bem-vinda.
 
+Exemplo:
+
+procedure TfrmPrincipal.ConsultarCEP;
+
+var
+   xConsultarCEP: TConsultarCEP; // A classe TConsultarCEP terá todos os campos do endereço
+begin
+   try
+      xConsultarCEP := TConsultarCEP.Create;
+      xConsultarCEP.ConsultarAPIsCEP(InformeAquiSeuCEP, xConsultarCEP.Endereco);      
+   finally
+      if Assigned(xConsultarCEP) then FreeAndNil(xConsultarCEP);
+   end;
+end;
 
 
