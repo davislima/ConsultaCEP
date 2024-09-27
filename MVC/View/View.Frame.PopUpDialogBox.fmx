@@ -1,0 +1,218 @@
+object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
+  Align = Contents
+  Size.Width = 311.000000000000000000
+  Size.Height = 590.000000000000000000
+  Size.PlatformDefault = False
+  object TelaComFundoEscuroMeioTransparente: TRectangle
+    Align = Contents
+    Corners = [BottomLeft, BottomRight]
+    Fill.Color = claBlack
+    Opacity = 0.500000000000000000
+    Size.Width = 311.000000000000000000
+    Size.Height = 590.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+    OnClick = TelaComFundoEscuroMeioTransparenteClick
+    object faTelaComFundoEscuroMeioTransparente_Opacity: TFloatAnimation
+      Duration = 0.500000000000000000
+      PropertyName = 'Opacity'
+      StartValue = 0.000000000000000000
+      StopValue = 1.000000000000000000
+    end
+  end
+  object panelPopUpDialogBox: TPanel
+    Align = Horizontal
+    Margins.Left = 11.000000000000000000
+    Margins.Right = 11.000000000000000000
+    Position.X = 11.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 663.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'style_PanelPopUp'
+    TabOrder = 0
+    object faRectPopUpDialogBox_Movimento: TFloatAnimation
+      AnimationType = Out
+      Duration = 2.000000000000000000
+      Interpolation = Elastic
+      OnFinish = faRectPopUpDialogBox_MovimentoFinish
+      PropertyName = 'Position.Y'
+      StartValue = 0.000000000000000000
+      StopValue = 0.000000000000000000
+    end
+    object lbPopUpDialogBox: TListBox
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Size.Width = 279.000000000000000000
+      Size.Height = 512.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'style_ListBox'
+      TabOrder = 0
+      ShowScrollBars = False
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = 'listboxitemnodetail'
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      GroupingKind = Grouped
+      OnItemClick = lbPopUpDialogBoxItemClick
+      Viewport.Width = 279.000000000000000000
+      Viewport.Height = 512.000000000000000000
+      object lbiPopUpDialogBox00: TListBoxItem
+        OnTap = lbiPopUpDialogBox00Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        TextSettings.WordWrap = True
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 0
+        Text = 'Op'#231#227'o 00'
+      end
+      object lbiPopUpDialogBox01: TListBoxItem
+        OnTap = lbiPopUpDialogBox01Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 57.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 1
+        Text = 'Op'#231#227'o 01'
+      end
+      object lbiPopUpDialogBox02: TListBoxItem
+        OnTap = lbiPopUpDialogBox02Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 114.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 2
+        Text = 'Op'#231#227'o 02'
+      end
+      object lbiPopUpDialogBox03: TListBoxItem
+        OnTap = lbiPopUpDialogBox03Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 171.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 3
+        Text = 'Op'#231#227'o 03'
+      end
+      object lbiPopUpDialogBox04: TListBoxItem
+        OnTap = lbiPopUpDialogBox04Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 228.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 4
+        Text = 'Op'#231#227'o 04'
+      end
+      object lbiPopUpDialogBox05: TListBoxItem
+        OnTap = lbiPopUpDialogBox05Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 285.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 5
+        Text = 'Op'#231#227'o 05'
+      end
+      object lbiPopUpDialogBox06: TListBoxItem
+        OnTap = lbiPopUpDialogBox06Tap
+        Selectable = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.HorzAlign = Center
+        Position.Y = 342.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemComFramePopUp'
+        TabOrder = 6
+        Text = 'Op'#231#227'o 06'
+      end
+      object lbiPopUpDialogBoxSair: TListBoxItem
+        OnTap = lbiPopUpDialogBoxSairTap
+        Selectable = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.FontColor = claSteelblue
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family]
+        IsChecked = True
+        Position.Y = 399.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_ListBoxItemSemFrame'
+        TabOrder = 7
+        Text = 'SAIR'
+        OnClick = lbiPopUpDialogBoxSairClick
+      end
+    end
+    object rectBottonTelaPopUpDialogBox: TRectangle
+      Align = Bottom
+      Fill.Kind = None
+      Position.Y = 643.000000000000000000
+      Size.Width = 289.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      Stroke.Thickness = 0.000000000000000000
+    end
+    object rectMemoPopUpDialogBox: TRectangle
+      Align = Top
+      Fill.Kind = None
+      Margins.Top = -25.000000000000000000
+      Position.Y = -25.000000000000000000
+      Size.Width = 289.000000000000000000
+      Size.Height = 150.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      Stroke.Thickness = 0.000000000000000000
+      object memoPopUpDialogBox: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        Lines.Strings = (
+          'Mensagem do DialogBox')
+        ReadOnly = True
+        ShowScrollBars = False
+        StyledSettings = [Family, Style, FontColor]
+        TextSettings.Font.Size = 17.000000000000000000
+        TextSettings.FontColor = claSteelblue
+        TextSettings.HorzAlign = Center
+        TextSettings.WordWrap = True
+        Align = Client
+        CanFocus = False
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 30.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 279.000000000000000000
+        Size.Height = 115.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'style_MemoPopUp'
+        Viewport.Width = 279.000000000000000000
+        Viewport.Height = 115.000000000000000000
+      end
+    end
+  end
+end

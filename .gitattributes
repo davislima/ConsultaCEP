@@ -1,0 +1,35 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for Project Delphi
+*.pas          diff=objectpascal
+*.dfm          diff=formdelphi
+*.fmx          diff=firemonkey
+*.xml          diff=xmlfile
+*.deployproj   diff=projectdelphi
+*.dpr          diff=projectdelphi
+*.dproj        diff=projectdelphi
+*.dproj.local  diff=projectdelphi
+*.identcache   diff=projectdelphi
+*.res          diff=projectdelphi
+*.stat         diff=projectdelphi
+*.vlb          diff=projectdelphi
+
+# Custon for Image Project Delphi
+
+*.jpg          diff=imageproject
+*.jpeg         diff=imageproject
+*.bmp          diff=imageproject
+*.png          diff=imageproject
+
+# Standard to msysgit
+*.doc	       diff=astextplain
+*.DOC	       diff=astextplain
+*.docx         diff=astextplain
+*.DOCX         diff=astextplain
+*.dot          diff=astextplain
+*.DOT          diff=astextplain
+*.pdf          diff=astextplain
+*.PDF	       diff=astextplain
+*.rtf	       diff=astextplain
+*.RTF 	       diff=astextplain
