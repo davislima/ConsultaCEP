@@ -17,9 +17,8 @@ Sinta-se à vontade para explorar, contribuir e sugerir melhorias! Este é um pr
 Exemplo:
 
 procedure TfrmPrincipal.ConsultarCEP;
-
 var
-   xConsultarCEP: TConsultarCEP; // A classe TConsultarCEP terá todos os campos do endereço
+   xConsultarCEP: TConsultarCEP; // A classe TConsultarCEP terá todos os campos do endereço   
 begin
    try
       xConsultarCEP := TConsultarCEP.Create;
