@@ -10,7 +10,10 @@ uses
   Controller.ConsultarCEP in 'MVC\Controller\Controller.ConsultarCEP.pas',
   Controller.Ferramentas.AparenciaAPP in 'MVC\Controller\Controller.Ferramentas.AparenciaAPP.pas',
   Controller.Ferramentas.Objects.Synchronize in 'MVC\Controller\Controller.Ferramentas.Objects.Synchronize.pas',
-  Controller.Records.API.CEP in 'MVC\Controller\Controller.Records.API.CEP.pas';
+  Controller.Records.API.CEP in 'MVC\Controller\Controller.Records.API.CEP.pas',
+  Controller.Frame.PopUpDialogBox in 'MVC\Controller\Controller.Frame.PopUpDialogBox.pas',
+  View.Frame.MensagemEspera in 'MVC\View\View.Frame.MensagemEspera.pas' {frameMensagemEspera: TFrame},
+  Controller.Ferramentas.Strings in 'MVC\Controller\Controller.Ferramentas.Strings.pas';
 
 {$R *.res}
 

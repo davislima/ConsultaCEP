@@ -19,5 +19,8 @@
     <Transaction>2024/09/26 20:42:55.000.150,=C:\Davis\iOS and Android Application\ConsultaCEP\MVC\Controller\Controller.Ferramentas.AparenciaAPP.pas</Transaction>
     <Transaction>2024/09/26 21:27:40.000.419,=C:\Davis\iOS and Android Application\ConsultaCEP\MVC\Controller\Controller.Ferramentas.Objects.Synchronize.pas</Transaction>
     <Transaction>2024/09/27 08:25:49.000.738,=C:\Davis\iOS and Android Application\ConsultaCEP\MVC\Controller\Controller.Records.API.CEP.pas</Transaction>
+    <Transaction>2024/10/10 14:04:30.000.692,=C:\Davis\iOS and Android Application\ConsultaCEP\MVC\Controller\Controller.Frame.PopUpDialogBox.pas</Transaction>
+    <Transaction>2024/10/10 14:06:13.000.443,=C:\Davis\iOS and Android Application\ConsultaCEP\MVC\View\View.Frame.MensagemEspera.pas</Transaction>
+    <Transaction>2024/10/10 14:09:48.000.523,=C:\Davis\iOS and Android Application\ConsultaCEP\MVC\Controller\Controller.Ferramentas.Strings.pas</Transaction>
   </Transactions>
 </BorlandProject>

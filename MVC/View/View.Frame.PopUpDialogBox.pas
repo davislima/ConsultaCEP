@@ -3,178 +3,179 @@ unit View.Frame.PopUpDialogBox;
 interface
 
 uses
-  System.SysUtils,
-  System.Types,
-  System.UITypes,
-  System.Classes,
-  System.Variants,
-  FMX.Types,
-  FMX.Graphics,
-  FMX.Controls,
-  FMX.Forms,
-  FMX.Dialogs,
-  FMX.StdCtrls,
-  FMX.Objects,
-  FMX.Controls.Presentation,
-  FMX.Ani,
-  FMX.Effects,
-  FMX.ScrollBox,
-  FMX.Memo,
-  FMX.ListBox,
-  FMX.Layouts,
-  FMX.Memo.Types,
-  FMX.Edit;
+   System.SysUtils,
+   System.Types,
+   System.UITypes,
+   System.Classes,
+   System.Variants,
+   FMX.Types,
+   FMX.Graphics,
+   FMX.Controls,
+   FMX.Forms,
+   FMX.Dialogs,
+   FMX.StdCtrls,
+   FMX.Objects,
+   FMX.Controls.Presentation,
+   FMX.Ani,
+   FMX.Effects,
+   FMX.ScrollBox,
+   FMX.Memo,
+   FMX.ListBox,
+   FMX.Layouts,
+   FMX.Memo.Types,
+   FMX.Edit;
 
 type
-  TframeTelaPopUpDialogBox = class(TFrame)
-    TelaComFundoEscuroMeioTransparente: TRectangle;
-    faRectPopUpDialogBox_Movimento: TFloatAnimation;
-    lbPopUpDialogBox: TListBox;
-    lbiPopUpDialogBox00: TListBoxItem;
-    lbiPopUpDialogBox01: TListBoxItem;
-    lbiPopUpDialogBox02: TListBoxItem;
-    lbiPopUpDialogBox03: TListBoxItem;
-    lbiPopUpDialogBox04: TListBoxItem;
-    lbiPopUpDialogBox05: TListBoxItem;
-    lbiPopUpDialogBox06: TListBoxItem;
-    lbiPopUpDialogBoxSair: TListBoxItem;
-    rectMemoPopUpDialogBox: TRectangle;
-    memoPopUpDialogBox: TMemo;
-    faTelaComFundoEscuroMeioTransparente_Opacity: TFloatAnimation;
-    rectBottonTelaPopUpDialogBox: TRectangle;
-    panelPopUpDialogBox: TPanel;
-    procedure TelaComFundoEscuroMeioTransparenteClick(Sender: TObject);
+   TframeTelaPopUpDialogBox = class(TFrame)
+      TelaComFundoEscuroMeioTransparente: TRectangle;
+      faRectPopUpDialogBox_Movimento: TFloatAnimation;
+      lbPopUpDialogBox: TListBox;
+      lbiPopUpDialogBox00: TListBoxItem;
+      lbiPopUpDialogBox01: TListBoxItem;
+      lbiPopUpDialogBox02: TListBoxItem;
+      lbiPopUpDialogBox03: TListBoxItem;
+      lbiPopUpDialogBox04: TListBoxItem;
+      lbiPopUpDialogBox05: TListBoxItem;
+      lbiPopUpDialogBox06: TListBoxItem;
+      lbiPopUpDialogBoxSair: TListBoxItem;
+      rectMemoPopUpDialogBox: TRectangle;
+      memoPopUpDialogBox: TMemo;
+      faTelaComFundoEscuroMeioTransparente_Opacity: TFloatAnimation;
+      rectBottonTelaPopUpDialogBox: TRectangle;
+      panelPopUpDialogBox: TPanel;
 
-    // INÍCIO DAS PROCEDURES E FUNÇÕES ESPECÍFICAS
-    procedure AbreTelaPopUpDialogBox ();
-    procedure FechaTelaPopUpDialogBox ();
-    procedure faRectPopUpDialogBox_MovimentoFinish(Sender: TObject);
-    procedure ExecutaTelaPopUpDialogBox (arrayPopUpDialogBox: TArray<String>;
-                                         MensagemDialogBox: String);
-    procedure lbiPopUpDialogBox01Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBox02Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBox03Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBox04Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBox00Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBox05Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBox06Tap(Sender: TObject; const Point: TPointF);
-    procedure lbiPopUpDialogBoxSairClick(Sender: TObject);
-    procedure lbiPopUpDialogBoxSairTap(Sender: TObject; const Point: TPointF);
-    procedure lbPopUpDialogBoxItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
-    // FINAL DAS PROCEDURES E FUNÇÕES ESPECÍFICAS
+      procedure TelaComFundoEscuroMeioTransparenteClick(Sender: TObject);
+      procedure faRectPopUpDialogBox_MovimentoFinish(Sender: TObject);
+      procedure lbPopUpDialogBoxItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
 
-  private
-    { Private declarations }
+   private
+      FNomeForm: TForm;
 
-  public
-    { Public declarations }
+      procedure AbrirTelaPopUpDialogBox;
+      procedure FecharTelaPopUpDialogBox;
+      procedure ExecutarOpcao00(Sender: TObject);
+      procedure ExecutarOpcao01(Sender: TObject);
+      procedure ExecutarOpcao02(Sender: TObject);
+      procedure ExecutarOpcao03(Sender: TObject);
+      procedure ExecutarOpcao04(Sender: TObject);
+      procedure ExecutarOpcao05(Sender: TObject);
+      procedure ExecutarOpcao06(Sender: TObject);
+      procedure ExecutarOpcaoSair(Sender: TObject);
 
-  end;
+   public
+      procedure ExecutarTelaPopUpDialogBox(arrayPopUpDialogBox: TArray<String>;
+                                           aMensagemDialogBox: String;
+                                           aNomeForm: TForm);
+
+end;
 
 var
-  // VARIÁVEL QUE CONTÉM AS PROCEDURES DAS OPÇÕES DO PopUpDialogBox
-  arrayPopUpDialogBoxProcedures: Array of Procedure of object;
+   // VARIÁVEL QUE CONTÉM AS PROCEDURES DAS OPÇÕES DO PopUpDialogBox
+   arrayPopUpDialogBoxProcedures: Array of Procedure of object;
 
 implementation
 
 {$R *.fmx}
 
 uses
-   View.Principal.ConsultaCEP,
-   Controller.Ferramentas.AparenciaAPP;
+   Controller.Ferramentas.AparenciaAPP,
+   Controller.Frame.PopUpDialogBox;
 
 procedure TframeTelaPopUpDialogBox.TelaComFundoEscuroMeioTransparenteClick(Sender: TObject);
 begin
-   FechaTelaPopUpDialogBox ();
+   FecharTelaPopUpDialogBox;
 end;
 
-procedure TframeTelaPopUpDialogBox.ExecutaTelaPopUpDialogBox (arrayPopUpDialogBox: TArray<String>;
-                                                              MensagemDialogBox: String);
+procedure TframeTelaPopUpDialogBox.ExecutarTelaPopUpDialogBox(arrayPopUpDialogBox: TArray<String>;
+                                                              aMensagemDialogBox: String;
+                                                              aNomeForm: TForm);
 begin
    TThread.Synchronize(nil,
    procedure
    var
-      a,
-      ItemInicialEmbranco: Integer;
+      i,
+      xItemInicialEmbranco: Integer;
    begin
       try
+         FNomeForm := aNomeForm;
+
          // MESAGEM DO PopUpDialogBox
          memoPopUpDialogBox.Lines.Clear;
 
-         memoPopUpDialogBox.Text := MensagemDialogBox;
-         ItemInicialEmbranco     := 0;
+         memoPopUpDialogBox.Text := aMensagemDialogBox;
+         xItemInicialEmbranco    := 0;
 
          // INCLUI OS ÍTENS DO MENU PopUp
-         for a := 0 to High (arrayPopUpDialogBox) do
+         for i := 0 to High(arrayPopUpDialogBox) do
          begin
-            if TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [a]))) is TListBoxItem then
+            if TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [i]))) is TListBoxItem then
             begin
                // HABILITO VISUALMENTE OS ÍTENS NO MENU
-               TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [a]))).Visible := True;
+               TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [i]))).Visible := True;
 
                // INFORMO O NOME DE CADA OPÇÃO DO MENU
-               TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [a]))).Text := arrayPopUpDialogBox [a];
+               TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [i]))).Text := arrayPopUpDialogBox [i];
 
                // VERIFICO O PRIMEIRO ÍTEM QUE ESTÁ EM BRANCO
-               if (Trim (arrayPopUpDialogBox [a]) = '') and (ItemInicialEmbranco = 0) then
-                  ItemInicialEmbranco := a;
+               if (Trim(arrayPopUpDialogBox [i]) = EmptyStr) and (xItemInicialEmbranco = 0) then
+                  xItemInicialEmbranco := i;
             end;
          end;
 
-         // SE ItemInicialEmbranco IGUAL A "-1" É PORQUE NÃO TEM NENHUMA OPÇÃO EM BRANCO
+         // SE xItemInicialEmbranco IGUAL A "-1" É PORQUE NÃO TEM NENHUMA OPÇÃO EM BRANCO
          // E NESSE CASO A POSIÇÃO DA OPÇÃO "SAIR" SEMPRE SERÁ A ÚLTIMA
-         if (TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [0]))) is TListBoxItem) and
-            (Trim (TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [High (arrayPopUpDialogBox)]))).Text) <> '') then
-            ItemInicialEmbranco := High (arrayPopUpDialogBox)+1;
+         if (TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [0]))) is TListBoxItem) and
+            (Trim(TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [High(arrayPopUpDialogBox)]))).Text) <> '') then
+            xItemInicialEmbranco := High(arrayPopUpDialogBox) + 1;
 
          // ALTERO A ORDEM DO ÚLTIMO ListBoxItem, QUE É A OPÇÃO "SAIR" PARA QUE FIQUE ABAIXO
          // DO ÚLTIMO ÍTEM DA LISTA
-         lbiPopUpDialogBoxSair.Index := ItemInicialEmbranco;
+         lbiPopUpDialogBoxSair.Index := xItemInicialEmbranco;
 
          // O PRÓXIMO for DESABILITA VISUALMENTE OS ÍTENS DO MENU QUE NÃO SERÃO UTILIZADOS
-         // NA TELA PopUp E COLOQUEI "ItemInicialEmbranco+1" NO for, POIS IREI DESABILITAR
+         // NA TELA PopUp E COLOQUEI "xItemInicialEmbranco +1" NO for, POIS IREI DESABILITAR
          // APENAS OS ÍTENS POSTERIORES, OU SEJA, A PARTIR DO ÚLTIMO ÍTEM DO MENU.
-         // AJUSTO O TAMANHO DO rectPopUpDialogBox E A VARIÁVEL ItemInicialEmbranco INICIA
+         // AJUSTO O TAMANHO DO rectPopUpDialogBox E A VARIÁVEL xItemInicialEmbranco INICIA
          // A PARTIR DO PRIMEIRO ÍTEM EM BRANCO, OU SEJA, SEM OPÇÃO A EXECUTAR
-         for a := ItemInicialEmbranco to lbPopUpDialogBox.Count-1 do
+         for i := xItemInicialEmbranco to Pred(lbPopUpDialogBox.Count) do
          begin
-            if TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [a]))) is TListBoxItem then
+            if TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [i]))) is TListBoxItem then
             begin
                // DESATIVO VISUALMENTE O ListBoxItem DO MENU QUE NÃO É NECESSÁRIO
-               TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [a]))).Visible := False;
+               TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [i]))).Visible := False;
 
                // DIMINUO O TAMANHO DO rectPopUpDialogBox PARA CABER SÓ O TOTAL DE OPÇÕES
-               // COLOQUEI "+1" NO ItemInicialEmbranco POIS TEM MAIS O ÚLTIMO
+               // COLOQUEI "+1" NO xItemInicialEmbranco POIS TEM MAIS O ÚLTIMO
                // ListBoxItem, QUE É A OPÇÃO "SAIR"
-               panelPopUpDialogBox.Height := (ItemInicialEmbranco+1) * TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [a]))).Height;
+               panelPopUpDialogBox.Height := (xItemInicialEmbranco + 1) * TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [i]))).Height;
             end;
          end;
 
          // QUANDO NÃO TIVER NENHUM ÍTEM EM BRANCO, O TAMANHO DO rect SERÁ O TAMANHO
          // DE TODAS AS OPÇÕES
-         if ItemInicialEmbranco = High (arrayPopUpDialogBox)+1 then
-            panelPopUpDialogBox.Height := (ItemInicialEmbranco+1) * TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [0]))).Height;
+         if xItemInicialEmbranco = High(arrayPopUpDialogBox) + 1 then
+            panelPopUpDialogBox.Height := (xItemInicialEmbranco + 1) * TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [0]))).Height;
 
          // QUANDO O ÍTEM ZERO ESTIVER EM BRANCO SIGNIFICA DIZER QUE É APENAS UMA MENSAGEM INFORMATIVA
          // E NESSE CASO APAGO ESSE ÍTEM PARA NÃO FICAR MOSTRANDO NA TELA
-         if (TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [0]))) is TListBoxItem) and
-            (Trim (TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [0]))).Text) = '') then
+         if (TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [0]))) is TListBoxItem) and
+            (Trim(TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [0]))).Text) = '') then
          begin
             // DESATIVO VISUALMENTE O ListBoxItem DO MENU QUE NÃO É NECESSÁRIO
-            TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [0]))).Visible := False;
+            TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [0]))).Visible := False;
 
             // COLOQUEI "+100" NO Height PARA AJUSTAR O TAMANHO E FICAR IDEAL
-            panelPopUpDialogBox.Height := panelPopUpDialogBox.Height - TListBoxItem (FindComponent ('lbiPopUpDialogBox'+Format('%2.2d', [0]))).Height;
+            panelPopUpDialogBox.Height := panelPopUpDialogBox.Height - TListBoxItem(FindComponent('lbiPopUpDialogBox' + Format('%2.2d', [0]))).Height;
          end;
 
          // AJUSTO O TAMANHO DO POPUP
          panelPopUpDialogBox.Height := panelPopUpDialogBox.Height + 20;
 
          // VAI PARA O PRIMEIRO ÍTEM DA LISTA
-         lbPopUpDialogBox.ScrollToItem (lbPopUpDialogBox.ListItems[0]);
+         lbPopUpDialogBox.ScrollToItem(lbPopUpDialogBox.ListItems[0]);
 
          // CHAMO A TELA COM O MENU
-         AbreTelaPopUpDialogBox ();
+         AbrirTelaPopUpDialogBox;
       except
       end;
    end);
@@ -185,12 +186,13 @@ begin
    TThread.Synchronize(nil,
    procedure
    begin
-      if faRectPopUpDialogBox_Movimento.StopValue = frmPrincipal.Height+1 then
-         frmPrincipal.frameTelaPopUpDialogBox.Visible := False;
+      if faRectPopUpDialogBox_Movimento.StopValue = FNomeForm.Height + 1 then
+         if Assigned(TPopUpDialogBox.xFrameTelaPopUpDialogBox) then
+            FreeAndNil(TPopUpDialogBox.xFrameTelaPopUpDialogBox);
    end);
 end;
 
-procedure TframeTelaPopUpDialogBox.FechaTelaPopUpDialogBox ();
+procedure TframeTelaPopUpDialogBox.FecharTelaPopUpDialogBox;
 begin
    TThread.Synchronize(nil,
    procedure
@@ -205,7 +207,7 @@ begin
 
          // PARÂMETROS DA MOVIMENTAÇÃO DO FloatAnimationTelaPopUp
          faRectPopUpDialogBox_Movimento.StartValue := panelPopUpDialogBox.Position.Y;
-         faRectPopUpDialogBox_Movimento.StopValue  := frmPrincipal.Height+1;
+         faRectPopUpDialogBox_Movimento.StopValue  := FNomeForm.Height + 1;
 
          // ALTERO ALGUMAS PROPRIEDADES DO FLOATANIMATTION E NO OnClose VOLTO AO "NORMAL"
          faRectPopUpDialogBox_Movimento.Duration      := 0.3;
@@ -219,95 +221,84 @@ begin
    end);
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox00Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao00(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [00];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[00];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox01Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao01(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [01];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[01];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox02Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao02(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [02];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[02];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox03Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao03(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [03];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[03];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox04Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao04(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [04];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[04];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox05Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao05(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [05];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[05];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBox06Tap(Sender: TObject; const Point: TPointF);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcao06(Sender: TObject);
 begin
-   TelaComFundoEscuroMeioTransparenteClick(Self);
-   arrayPopUpDialogBoxProcedures [06];
+   FecharTelaPopUpDialogBox;
+   arrayPopUpDialogBoxProcedures[06];
 end;
 
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBoxSairClick(Sender: TObject);
+procedure TframeTelaPopUpDialogBox.ExecutarOpcaoSair(Sender: TObject);
 begin
-   {$IF Defined(MSWINDOWS) or Defined(MACOS)}
-   try
-      // EXECUTA A ROTINA OnTap DO COMPONENTE
-      lbiPopUpDialogBoxSairTap(Sender, PointF (0, 0));
-   except
-   end;
-   {$ENDIF MSWINDOWS or MACOS}
-end;
-
-procedure TframeTelaPopUpDialogBox.lbiPopUpDialogBoxSairTap(Sender: TObject; const Point: TPointF);
-begin
-   FechaTelaPopUpDialogBox ();
+   FecharTelaPopUpDialogBox;
 end;
 
 procedure TframeTelaPopUpDialogBox.lbPopUpDialogBoxItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
 begin
    try
       if Item = lbiPopUpDialogBox00 then
-         lbiPopUpDialogBox00Tap(Sender, PointF (0, 0))
+         ExecutarOpcao00(Sender)
       else
       if Item = lbiPopUpDialogBox01 then
-         lbiPopUpDialogBox01Tap(Sender, PointF (0, 0))
+         ExecutarOpcao01(Sender)
       else
       if Item = lbiPopUpDialogBox02 then
-         lbiPopUpDialogBox02Tap(Sender, PointF (0, 0))
+         ExecutarOpcao02(Sender)
       else
       if Item = lbiPopUpDialogBox03 then
-         lbiPopUpDialogBox03Tap(Sender, PointF (0, 0))
+         ExecutarOpcao03(Sender)
       else
       if Item = lbiPopUpDialogBox04 then
-         lbiPopUpDialogBox04Tap(Sender, PointF (0, 0))
+         ExecutarOpcao04(Sender)
       else
       if Item = lbiPopUpDialogBox05 then
-         lbiPopUpDialogBox05Tap(Sender, PointF (0, 0))
+         ExecutarOpcao05(Sender)
       else
       if Item = lbiPopUpDialogBox06 then
-         lbiPopUpDialogBox06Tap(Sender, PointF (0, 0))
+         ExecutarOpcao06(Sender)
       else
       if Item = lbiPopUpDialogBoxSair then
-         lbiPopUpDialogBoxSairTap(Sender, PointF (0, 0));
+         ExecutarOpcaoSair(Sender);
    except
    end;
 end;
 
-procedure TframeTelaPopUpDialogBox.AbreTelaPopUpDialogBox ();
+procedure TframeTelaPopUpDialogBox.AbrirTelaPopUpDialogBox;
 begin
    TThread.Synchronize(nil,
    procedure
@@ -317,65 +308,65 @@ begin
       try
          {$IFDEF ANDROID}
          // AJUSTA A StatusBar
-         frmPrincipal.DefinirStatusBar (frmPrincipal.StatusBarTransparente {DefinirStatusBarTransparente},
-                                        frmPrincipal.StatusBarDarkMode {DefinirStatusBarDarkMode},
-                                        frmPrincipal.StatusBarCor {DefinirStatusBarCor});
+         FNomeForm.DefinirStatusBar(FNomeForm.StatusBarTransparente {DefinirStatusBarTransparente},
+                                    FNomeForm.StatusBarDarkMode {DefinirStatusBarDarkMode},
+                                    FNomeForm.StatusBarCor {DefinirStatusBarCor});
          {$ENDIF}
 
          // PEGO A ALTURA DA TELA
-         AlturaTela := frmPrincipal.Height;
+         AlturaTela := FNomeForm.Height;
 
          {$IF Defined(MSWINDOWS) or Defined(MACOS)}
          rectBottonTelaPopUpDialogBox.Height := 10;
 
          // COLOQUEI "+110" NO Height PARA AJUSTAR O TAMANHO E FICAR IDEAL
-         panelPopUpDialogBox.Height := panelPopUpDialogBox.Height+110;
+         panelPopUpDialogBox.Height := panelPopUpDialogBox.Height + 110;
          {$ENDIF MSWINDOWS or MACOS}
 
          {$IFDEF ANDROID}
          rectBottonTelaPopUpDialogBox.Height := 10;
 
          // COLOQUEI "+110" NO Height PARA AJUSTAR O TAMANHO E FICAR IDEAL
-         panelPopUpDialogBox.Height := panelPopUpDialogBox.Height+110;
+         panelPopUpDialogBox.Height := panelPopUpDialogBox.Height + 110;
          {$ENDIF}
 
          {$IFDEF IOS}
          rectBottonTelaPopUpDialogBox.Height := 20;
 
          // COLOQUEI "+110" NO Height PARA AJUSTAR O TAMANHO E FICAR IDEAL
-         panelPopUpDialogBox.Height := panelPopUpDialogBox.Height+110;
+         panelPopUpDialogBox.Height := panelPopUpDialogBox.Height + 110;
          {$ENDIF}
 
          // HABILITO O FRAME
-         frmPrincipal.frameTelaPopUpDialogBox.BringToFront;
-         frmPrincipal.frameTelaPopUpDialogBox.Visible := True;
+         FNomeForm.BringToFront;
+         FNomeForm.Visible := True;
 
          // PARÂMETROS DO FloatAnimation
          faTelaComFundoEscuroMeioTransparente_Opacity.StartValue := 0;
-         faTelaComFundoEscuroMeioTransparente_Opacity.StopValue := 0.5;
+         faTelaComFundoEscuroMeioTransparente_Opacity.StopValue  := 0.5;
 
          // INICIA O FloatAnimation
          faTelaComFundoEscuroMeioTransparente_Opacity.Start;
 
          // INICIA O rectTelaPopUpDialogBox ABAIXO DO TAMANHO DA TELA
-         panelPopUpDialogBox.Position.Y := AlturaTela+1;
+         panelPopUpDialogBox.Position.Y := AlturaTela + 1;
 
          // HABILITO VISULAMENTE O MENU SUSPENSO
          panelPopUpDialogBox.Visible := True;
 
          // PARÂMETROS DA MOVIMENTAÇÃO DO FloatAnimationTelaPopUp
-         faRectPopUpDialogBox_Movimento.StartValue := AlturaTela+1;
+         faRectPopUpDialogBox_Movimento.StartValue := AlturaTela + 1;
 
          {$IF Defined(MSWINDOWS) or Defined(MACOS)}
-         faRectPopUpDialogBox_Movimento.StopValue := AlturaTela-panelPopUpDialogBox.Height-44;
+         faRectPopUpDialogBox_Movimento.StopValue := AlturaTela - panelPopUpDialogBox.Height - 50;
          {$ENDIF MSWINDOWS or MACOS}
 
          {$IFDEF IOS}
-         faRectPopUpDialogBox_Movimento.StopValue := AlturaTela-panelPopUpDialogBox.Height-25;
+         faRectPopUpDialogBox_Movimento.StopValue := AlturaTela - panelPopUpDialogBox.Height - 25;
          {$ENDIF}
 
          {$IFDEF ANDROID}
-         faRectPopUpDialogBox_Movimento.StopValue := AlturaTela-panelPopUpDialogBox.Height-12;
+         faRectPopUpDialogBox_Movimento.StopValue := AlturaTela - panelPopUpDialogBox.Height - 12;
          {$ENDIF}
 
          // ALTERO ALGUMAS PROPRIEDADES DO FLOATANIMATTION E NO OnClose VOLTO AO "NORMAL"
@@ -386,7 +377,7 @@ begin
          // INICIA O FloatAnimationTelaPopUp
          faRectPopUpDialogBox_Movimento.Start;
       except
-         FechaTelaPopUpDialogBox ();
+         FecharTelaPopUpDialogBox;
       end;
    end);
 end;

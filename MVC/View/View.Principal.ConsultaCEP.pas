@@ -24,12 +24,9 @@ uses
   FMX.Memo,
   FMX.TabControl,
   FMX.Effects,
-  View.Frame.PopUpDialogBox,
   Controller.ConsultarCEP;
 
 type
-  TExecutarProcedure = procedure of object; // ROTINA PopUpDialogBox_PerguntaComOpcoes
-
   TfrmPrincipal = class(TForm)
     layoutToolBar: TLayout;
     lblToolBar: TLabel;
@@ -39,15 +36,6 @@ type
     cebBuscarCEP: TClearEditButton;
     imagemBuscarCEP: TImage;
     StyleBookTemaEscuro: TStyleBook;
-    layoutMensagemEspera: TLayout;
-    rectMensagemEspera_PreencheTelaTransparente: TRectangle;
-    layoutMensagemEspera_BoxMeio: TLayout;
-    arcAnimacaoEsperaFundo: TArc;
-    rectMensagemEspera_BoxMeio: TRectangle;
-    shadowMensagemEspera_BoxMeio: TShadowEffect;
-    arcAnimacaoEspera: TArc;
-    FloatAnimationAnimacaoEspera: TFloatAnimation;
-    lblMensagemEspera: TLabel;
     tabPrincipal: TTabControl;
     tabConsultaCEP: TTabItem;
     panelConsultaCEP_Endereco: TPanel;
@@ -66,7 +54,6 @@ type
     lblConsultaCEP_UF_Cabecalho: TLabel;
     lblConsultaCEP_UF: TLabel;
     BotaoSuperiorDireito: TSpeedButton;
-    frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox;
 
     procedure eBuscarCEPEnter(Sender: TObject);
     procedure eBuscarCEPExit(Sender: TObject);
@@ -78,25 +65,6 @@ type
       var KeyChar: Char; Shift: TShiftState);
 
   private
-    procedure TelaMensagemEspera (TextoMensagem: String;
-                                  HabilitaMensagem: Boolean);
-    procedure MensagemTThreadSynchronize (Mensagem: String);
-    procedure PopUpDialogBox_PerguntaComOpcoes (MensagemDialogBox,
-                                                Mensagem00,
-                                                Mensagem01,
-                                                Mensagem02,
-                                                Mensagem03,
-                                                Mensagem04,
-                                                Mensagem05,
-                                                Mensagem06: String;
-                                                ExecutarRotina00,
-                                                ExecutarRotina01,
-                                                ExecutarRotina02,
-                                                ExecutarRotina03,
-                                                ExecutarRotina04,
-                                                ExecutarRotina05,
-                                                ExecutarRotina06: TExecutarProcedure);
-    procedure RotinaNaoExecutaNadaPopUpDialogBox;
     procedure LimparLabels_frmPrincipal;
     procedure EnderecoToLabels(pEndereco: TConsultarCEP);
     procedure ConsultarCEP;
@@ -111,6 +79,8 @@ var
 implementation
 
 uses
+   View.Frame.MensagemEspera,
+   Controller.Frame.PopUpDialogBox,
    Controller.Ferramentas.Format,
    Controller.Ferramentas.Objects.Synchronize;
 
@@ -189,101 +159,6 @@ begin
    end);
 end;
 
-procedure TfrmPrincipal.TelaMensagemEspera (TextoMensagem: String;
-                                            HabilitaMensagem: Boolean);
-begin
-   TThread.Synchronize(nil,
-   procedure
-   begin
-      layoutMensagemEspera.Visible         := HabilitaMensagem;
-      FloatAnimationAnimacaoEspera.Enabled := HabilitaMensagem;
-      lblMensagemEspera.Text               := TextoMensagem;
-
-      layoutMensagemEspera_BoxMeio.BringToFront;
-   end);
-end;
-
-procedure TfrmPrincipal.MensagemTThreadSynchronize (Mensagem: String);
-begin
-   TThread.Synchronize(nil,
-   procedure
-   begin
-      PopUpDialogBox_PerguntaComOpcoes (Mensagem,
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        '',
-                                        RotinaNaoExecutaNadaPopUpDialogBox,
-                                        RotinaNaoExecutaNadaPopUpDialogBox,
-                                        RotinaNaoExecutaNadaPopUpDialogBox,
-                                        RotinaNaoExecutaNadaPopUpDialogBox,
-                                        RotinaNaoExecutaNadaPopUpDialogBox,
-                                        RotinaNaoExecutaNadaPopUpDialogBox,
-                                        RotinaNaoExecutaNadaPopUpDialogBox);
-   end);
-end;
-
-procedure TfrmPrincipal.PopUpDialogBox_PerguntaComOpcoes (MensagemDialogBox,
-                                                          Mensagem00,
-                                                          Mensagem01,
-                                                          Mensagem02,
-                                                          Mensagem03,
-                                                          Mensagem04,
-                                                          Mensagem05,
-                                                          Mensagem06: String;
-                                                          ExecutarRotina00,
-                                                          ExecutarRotina01,
-                                                          ExecutarRotina02,
-                                                          ExecutarRotina03,
-                                                          ExecutarRotina04,
-                                                          ExecutarRotina05,
-                                                          ExecutarRotina06: TExecutarProcedure);
-begin
-   TThread.Synchronize(nil,
-   procedure
-   var
-      arrayPopUpDialogBox: TArray<String>;
-   begin
-      // APAGAR QUALQUER ELEMENTO QUE ESTEJA NA MATRIZ
-      arrayPopUpDialogBox           := nil;
-      arrayPopUpDialogBoxProcedures := nil;
-
-      // INFORMO A DIMENSÃO DO array COM O TOTAL DE OPÇÕES DO MENU
-      SetLength (arrayPopUpDialogBox, 07); {TArray<String>}
-      SetLength (arrayPopUpDialogBoxProcedures, 07); {Array of Procedure of object}
-
-      // INFORMO AS OPÇÕES DO MENU
-      arrayPopUpDialogBox [0] := Mensagem00;
-      arrayPopUpDialogBox [1] := Mensagem01;
-      arrayPopUpDialogBox [2] := Mensagem02;
-      arrayPopUpDialogBox [3] := Mensagem03;
-      arrayPopUpDialogBox [4] := Mensagem04;
-      arrayPopUpDialogBox [5] := Mensagem05;
-      arrayPopUpDialogBox [6] := Mensagem06;
-
-      // INFORMO AS ROTINAS QUE SERÃO EXECUTADAS EM CADA ListBoxItem
-      arrayPopUpDialogBoxProcedures [0] := ExecutarRotina00;
-      arrayPopUpDialogBoxProcedures [1] := ExecutarRotina01;
-      arrayPopUpDialogBoxProcedures [2] := ExecutarRotina02;
-      arrayPopUpDialogBoxProcedures [3] := ExecutarRotina03;
-      arrayPopUpDialogBoxProcedures [4] := ExecutarRotina04;
-      arrayPopUpDialogBoxProcedures [5] := ExecutarRotina05;
-      arrayPopUpDialogBoxProcedures [6] := ExecutarRotina06;
-
-      // ADICIONA OS ÍTENS AO MENU E EXECUTA A TELA PopUpDialogBox
-      frameTelaPopUpDialogBox.ExecutaTelaPopUpDialogBox (arrayPopUpDialogBox,
-                                                         MensagemDialogBox);
-   end);
-end;
-
-procedure TfrmPrincipal.RotinaNaoExecutaNadaPopUpDialogBox ();
-begin
-   // NÃO EXECUTA NADA, POIS É QUANDO A OPÇÃO NÃO TEM NADA A EXECUTAR, ÓBVIO, KKKKK
-end;
-
 procedure TfrmPrincipal.LimparLabels_frmPrincipal;
 begin
    TThread.Synchronize(nil,
@@ -309,12 +184,12 @@ begin
 
       if Length (eBuscarCEP.Text) <> 10 then
       begin
-         MensagemTThreadSynchronize('Formato de CEP inválido!');
+         TPopUpDialogBox.MensagemAviso('Formato de CEP inválido!', Self);
          LimparLabels_frmPrincipal;
          exit;
       end;
 
-      TelaMensagemEspera ('Consultando CEP...',  True);
+      TframeMensagemEspera.MensagemEspera('Consultando CEP...',  True, Self);
 
       try
          xConsultarCEP := TConsultarCEP.Create;
@@ -325,16 +200,16 @@ begin
          else
          if xConsultarCEP.Endereco.Status = 404 then
          begin
-            MensagemTThreadSynchronize('CEP não encontrado!');
+            TPopUpDialogBox.MensagemAviso('CEP não encontrado!', Self);
             LimparLabels_frmPrincipal;
          end
          else
          begin
-            MensagemTThreadSynchronize('Serviço de consulta de CEP indisponível no momento!');
+            TPopUpDialogBox.MensagemAviso('Serviço de consulta de CEP indisponível no momento!', Self);
             LimparLabels_frmPrincipal;
          end;
       finally
-         TelaMensagemEspera (EmptyStr,  False);
+         TframeMensagemEspera.MensagemEspera(EmptyStr,  False, Self);
 
          if Assigned(xConsultarCEP) then FreeAndNil(xConsultarCEP);
       end;

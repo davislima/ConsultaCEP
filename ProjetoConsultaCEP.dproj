@@ -313,6 +313,13 @@
         <DCCReference Include="MVC\Controller\Controller.Ferramentas.AparenciaAPP.pas"/>
         <DCCReference Include="MVC\Controller\Controller.Ferramentas.Objects.Synchronize.pas"/>
         <DCCReference Include="MVC\Controller\Controller.Records.API.CEP.pas"/>
+        <DCCReference Include="MVC\Controller\Controller.Frame.PopUpDialogBox.pas"/>
+        <DCCReference Include="MVC\View\View.Frame.MensagemEspera.pas">
+            <Form>frameMensagemEspera</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="MVC\Controller\Controller.Ferramentas.Strings.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

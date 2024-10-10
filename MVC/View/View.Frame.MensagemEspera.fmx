@@ -1,0 +1,103 @@
+object frameMensagemEspera: TframeMensagemEspera
+  Size.Width = 320.000000000000000000
+  Size.Height = 322.000000000000000000
+  Size.PlatformDefault = False
+  object layoutMensagemEspera: TLayout
+    Align = Contents
+    HitTest = True
+    Size.Width = 320.000000000000000000
+    Size.Height = 322.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rectMensagemEspera_PreencheTelaTransparente: TRectangle
+      Align = Client
+      Corners = [BottomLeft, BottomRight]
+      Fill.Color = claBlack
+      Opacity = 0.500000000000000000
+      Size.Width = 320.000000000000000000
+      Size.Height = 322.000000000000000000
+      Size.PlatformDefault = False
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+    end
+    object layoutMensagemEspera_BoxMeio: TLayout
+      Align = Center
+      HitTest = True
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object arcAnimacaoEsperaFundo: TArc
+        Align = Center
+        HitTest = False
+        Margins.Top = 10.000000000000000000
+        Size.Width = 35.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFF84FF84
+        Stroke.Thickness = 1.500000000000000000
+        Stroke.Cap = Round
+        EndAngle = 360.000000000000000000
+      end
+      object rectMensagemEspera_BoxMeio: TRectangle
+        Align = Contents
+        Fill.Color = claSteelblue
+        HitTest = False
+        Opacity = 0.699999988079071000
+        Size.Width = 300.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 6.000000000000000000
+        YRadius = 6.000000000000000000
+        object shadowMensagemEspera_BoxMeio: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.500000000000000000
+          Opacity = 0.600000023841857900
+          ShadowColor = claBlack
+        end
+      end
+      object arcAnimacaoEspera: TArc
+        Align = Center
+        HitTest = False
+        Margins.Top = 10.000000000000000000
+        Size.Width = 35.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claLime
+        Stroke.Thickness = 1.500000000000000000
+        Stroke.Cap = Round
+        EndAngle = 260.000000000000000000
+        object FloatAnimationAnimacaoEspera: TFloatAnimation
+          Duration = 1.000000000000000000
+          Loop = True
+          PropertyName = 'RotationAngle'
+          StartValue = 0.000000000000000000
+          StopValue = 360.000000000000000000
+        end
+      end
+      object lblMensagemEspera: TLabel
+        Align = Bottom
+        StyledSettings = [Family, Size]
+        Opacity = 0.800000011920929000
+        Margins.Left = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 47.000000000000000000
+        Size.Width = 290.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
+        Text = 'Aguarde um Momento...'
+        TabOrder = 2
+      end
+    end
+  end
+end

@@ -59,7 +59,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
       Viewport.Width = 279.000000000000000000
       Viewport.Height = 512.000000000000000000
       object lbiPopUpDialogBox00: TListBoxItem
-        OnTap = lbiPopUpDialogBox00Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -72,7 +71,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 00'
       end
       object lbiPopUpDialogBox01: TListBoxItem
-        OnTap = lbiPopUpDialogBox01Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -85,7 +83,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 01'
       end
       object lbiPopUpDialogBox02: TListBoxItem
-        OnTap = lbiPopUpDialogBox02Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -98,7 +95,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 02'
       end
       object lbiPopUpDialogBox03: TListBoxItem
-        OnTap = lbiPopUpDialogBox03Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -111,7 +107,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 03'
       end
       object lbiPopUpDialogBox04: TListBoxItem
-        OnTap = lbiPopUpDialogBox04Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -124,7 +119,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 04'
       end
       object lbiPopUpDialogBox05: TListBoxItem
-        OnTap = lbiPopUpDialogBox05Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -137,7 +131,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 05'
       end
       object lbiPopUpDialogBox06: TListBoxItem
-        OnTap = lbiPopUpDialogBox06Tap
         Selectable = False
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.HorzAlign = Center
@@ -150,7 +143,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Text = 'Op'#231#227'o 06'
       end
       object lbiPopUpDialogBoxSair: TListBoxItem
-        OnTap = lbiPopUpDialogBoxSairTap
         Selectable = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -165,7 +157,6 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         StyleLookup = 'style_ListBoxItemSemFrame'
         TabOrder = 7
         Text = 'SAIR'
-        OnClick = lbiPopUpDialogBoxSairClick
       end
     end
     object rectBottonTelaPopUpDialogBox: TRectangle
@@ -210,8 +201,8 @@ object frameTelaPopUpDialogBox: TframeTelaPopUpDialogBox
         Size.Height = 115.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'style_MemoPopUp'
-        Viewport.Width = 279.000000000000000000
-        Viewport.Height = 115.000000000000000000
+        Viewport.Width = 255.000000000000000000
+        Viewport.Height = 91.000000000000000000
       end
     end
   end
